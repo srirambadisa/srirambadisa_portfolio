@@ -6,7 +6,7 @@ import MainContent from './components/MainContent/MainContent';
 const personalInfo = {
   name: "SRIRAM BADISA",
   title: "JAVA FULL STACK DEVELOPER",
-  avatar: "/assets/images/my-avatar.png", // Path relative to public folder
+  avatar: "/assets/images/raam.jpg", // Path relative to public folder
   email: "srirambadisa1938@gmail.com",
   phone: "+91 9553736290",
   birthday: "September 17, 2002",
