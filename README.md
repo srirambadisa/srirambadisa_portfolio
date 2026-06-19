@@ -1,12 +1,19 @@
-# React + Vite
+# Sriram Badisa Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An advanced one-page Product OS portfolio for Sriram Badisa, built with Next.js App Router, TypeScript, Tailwind CSS v4, local shadcn-style UI primitives, React Icons, and Recharts.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm run dev
+npm run typecheck
+npm run lint
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Direction
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Personal identity stays: name, photo, email, phone, location, and socials.
+- Legacy Java-first resume, education, service cards, and sample projects are removed from visible UI.
+- Proof and skills are rebuilt around Edsyft ERP: Next.js, React, TypeScript, Tailwind, shadcn UI, TanStack-style data workflows, Recharts, object storage, auth-aware routes, notifications, uploads, Vitest, and Playwright.
+- `/resume`, `/projects`, and `/contact` redirect into the new one-page portfolio sections.
