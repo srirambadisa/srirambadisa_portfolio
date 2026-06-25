@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FiArrowRight,
   FiExternalLink,
   FiMail,
   FiRadio,
-  FiZap,
 } from "react-icons/fi";
 
 import { Badge } from "@/components/ui/badge";
@@ -14,8 +12,12 @@ import {
   agenticWorkflowSteps,
   aiToolchain,
   commandMetrics,
+  edsyftCaseStudy,
   edsyftModules,
   profile,
+  proofHighlights,
+  publicProjects,
+  roleFocus,
   skillClusters,
   socialLinks,
   stackHighlights,
@@ -30,28 +32,12 @@ export function CommandHero() {
             {profile.availability}
           </Badge>
           <h1 className="mt-6 max-w-4xl text-5xl font-black leading-none text-white sm:text-6xl lg:text-7xl">
-            AI Product Engineer for interfaces that feel alive.
+            Full Stack Developer
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            I am {profile.name}, a full stack product engineer using Claude,
-            Codex, and GitHub Copilot daily to move from product intent to
-            tested, polished code.
+            I build web applications with React, Next.js, TypeScript, Java,
+            REST APIs, and SQL, using AI tools to plan, debug, and ship faster.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Start a conversation
-                <FiArrowRight />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/projects">
-                View product proof
-                <FiExternalLink />
-              </Link>
-            </Button>
-          </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             {socialLinks.map((link) => {
@@ -115,16 +101,29 @@ export function CommandHero() {
 export function IdentityStrip() {
   return (
     <section className="px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
-        <div className="gradient-border rounded-lg bg-white/[0.04] p-5">
-          <FiZap className="h-6 w-6 text-amber-200" />
-          <p className="mt-4 text-xl font-semibold text-white">
-            {profile.secondaryHeadline}
-          </p>
-        </div>
-        <div className="gradient-border rounded-lg bg-white/[0.04] p-5 md:col-span-2">
-          <p className="text-lg leading-8 text-slate-300">{profile.summary}</p>
-        </div>
+      <div className="mx-auto grid max-w-7xl gap-4 lg:grid-cols-3">
+        {roleFocus.map((item) => {
+          const Icon = item.icon;
+          return (
+            <div
+              className="gradient-border rounded-lg bg-white/[0.04] p-5"
+              key={item.label}
+            >
+              <div className="flex items-center justify-between gap-4">
+                <Icon className="h-6 w-6 text-amber-200" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">
+                  {item.label}
+                </span>
+              </div>
+              <p className="mt-4 text-xl font-semibold text-white">
+                {item.value}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-400">
+                {item.detail}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -134,7 +133,10 @@ export function WorkflowSection() {
   return (
     <section className="px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionKicker label="Agentic workflow" title="From idea to shipped code." />
+        <SectionKicker
+          label="Build workflow"
+          title="From requirement to checked implementation."
+        />
         <div className="mt-8 grid gap-4 md:grid-cols-4">
           {agenticWorkflowSteps.map((step, index) => {
             const Icon = step.icon;
@@ -188,7 +190,79 @@ export function ProofSection() {
   return (
     <section className="px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionKicker label="Product proof" title="Edsyft work, shown safely." />
+        <SectionKicker
+          label="Product proof"
+          title="Edsyft ERP as public-safe case study."
+        />
+        <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <article className="gradient-border rounded-lg bg-white/[0.05] p-6">
+            <Badge className="border-amber-300/25 bg-amber-300/10 text-amber-100">
+              {edsyftCaseStudy.eyebrow}
+            </Badge>
+            <h3 className="mt-5 text-3xl font-black text-white">
+              {edsyftCaseStudy.title}
+            </h3>
+            <p className="mt-4 text-base leading-8 text-slate-300">
+              {edsyftCaseStudy.summary}
+            </p>
+            <div className="mt-5 grid gap-3">
+              {[
+                ["Role", edsyftCaseStudy.role],
+                ["Contribution", edsyftCaseStudy.contribution],
+                ["Outcome", edsyftCaseStudy.outcome],
+              ].map(([label, detail]) => (
+                <div
+                  className="rounded-lg border border-white/10 bg-black/20 p-4"
+                  key={label}
+                >
+                  <p className="text-sm font-semibold text-cyan-100">
+                    {label}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">
+                    {detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {edsyftCaseStudy.stack.map((tech) => (
+                <span
+                  className="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-slate-300"
+                  key={tech}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild>
+                <a
+                  href={edsyftCaseStudy.liveHref}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  View live ERP
+                  <FiExternalLink />
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/projects">Read project proof</Link>
+              </Button>
+            </div>
+          </article>
+
+          <div className="grid content-start gap-3">
+            {proofHighlights.map((highlight) => (
+              <div
+                className="rounded-lg border border-cyan-300/15 bg-cyan-300/[0.06] p-4 text-sm font-medium leading-6 text-cyan-50"
+                key={highlight}
+              >
+                {highlight}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {edsyftModules.slice(0, 6).map((module) => {
             const Icon = module.icon;
@@ -213,6 +287,44 @@ export function ProofSection() {
             );
           })}
         </div>
+
+        <div className="mt-12">
+          <SectionKicker
+            label="Public repositories"
+            title="Smaller projects that support the full-stack story."
+          />
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {publicProjects.map((project) => {
+              const Icon = project.icon;
+              return (
+                <article
+                  className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-violet-300/35 hover:bg-white/[0.07]"
+                  key={project.title}
+                >
+                  <Icon className="h-6 w-6 text-violet-200" />
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">
+                    {project.type}
+                  </p>
+                  <h3 className="mt-3 text-lg font-semibold text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">
+                    {project.description}
+                  </p>
+                  <a
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan-100 transition hover:text-white"
+                    href={project.repoHref}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    View repo
+                    <FiExternalLink className="h-4 w-4" />
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -222,7 +334,10 @@ export function SkillConstellation() {
   return (
     <section className="px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <SectionKicker label="Skill constellation" title="The stack behind the studio." />
+        <SectionKicker
+          label="Skill stack"
+          title="Tools I can use on full-stack teams."
+        />
         <div className="mt-8 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -260,7 +375,7 @@ export function ContactBand() {
         <div>
           <p className="text-sm font-semibold text-cyan-200">Open signal</p>
           <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
-            Let us build something practical and sharp.
+            Open for full stack roles and practical product work.
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">

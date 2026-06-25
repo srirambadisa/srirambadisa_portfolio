@@ -24,6 +24,8 @@ const initialForm = {
 };
 
 const projectTypeOptions = [
+  "Full stack developer role",
+  "AI prompt engineering role",
   "Website / portfolio",
   "SaaS product UI",
   "ERP / admin dashboard",
@@ -34,10 +36,10 @@ const projectTypeOptions = [
 ];
 
 const budgetRangeOptions = [
-  "Under ₹25,000",
-  "₹25,000 - ₹75,000",
-  "₹75,000 - ₹1.5L",
-  "₹1.5L+",
+  "Under INR 25,000",
+  "INR 25,000 - INR 75,000",
+  "INR 75,000 - INR 1.5L",
+  "INR 1.5L+",
   "Not decided yet",
 ];
 
