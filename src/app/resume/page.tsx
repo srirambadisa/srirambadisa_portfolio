@@ -6,6 +6,7 @@ import {
   agenticWorkflowSteps,
   foundationStack,
   profile,
+  proofHighlights,
   resumeSignals,
   skillClusters,
 } from "@/lib/portfolio-data";
@@ -13,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Recruiter-friendly AI Product Engineer profile for Sriram Badisa.",
+    "Recruiter-friendly full stack developer profile for Sriram Badisa.",
 };
 
 export default function ResumePage() {
@@ -23,7 +24,7 @@ export default function ResumePage() {
         <SectionKicker
           label="Recruiter signal"
           titleAs="h1"
-          title="AI-native product engineering profile."
+          title="Full stack developer profile for 0-2 year roles."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
@@ -37,6 +38,24 @@ export default function ResumePage() {
             <p className="mt-4 text-lg leading-8 text-slate-300">
               {profile.secondaryHeadline}
             </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-cyan-300/15 bg-cyan-300/[0.06] p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">
+                  Target
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">
+                  {profile.primaryRole}
+                </p>
+              </div>
+              <div className="rounded-lg border border-amber-300/15 bg-amber-300/[0.06] p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-100">
+                  Experience
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">
+                  {profile.experienceLevel}
+                </p>
+              </div>
+            </div>
             <div className="mt-8 grid gap-3">
               {resumeSignals.map((signal) => (
                 <div
@@ -81,10 +100,27 @@ export default function ResumePage() {
           </section>
         </div>
 
+        <section className="mt-12 rounded-lg border border-cyan-300/20 bg-cyan-300/[0.06] p-6">
+          <h2 className="text-2xl font-black text-white">
+            What I bring to a team
+          </h2>
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
+            {proofHighlights.map((highlight) => (
+              <div
+                className="flex items-center gap-3 rounded-lg border border-white/10 bg-black/20 p-4 text-sm text-slate-200"
+                key={highlight}
+              >
+                <FiCheckCircle className="h-5 w-5 shrink-0 text-cyan-200" />
+                {highlight}
+              </div>
+            ))}
+          </div>
+        </section>
+
         <div className="mt-12 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
           <section className="rounded-lg border border-white/10 bg-white/[0.04] p-6">
             <h2 className="text-2xl font-black text-white">
-              Daily AI engineering loop
+              Daily AI-assisted engineering loop
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {agenticWorkflowSteps.map((step) => {
